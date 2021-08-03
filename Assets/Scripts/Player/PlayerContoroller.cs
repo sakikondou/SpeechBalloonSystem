@@ -16,7 +16,6 @@ public class PlayerContoroller : MonoBehaviour
 
     private void Start()
     {
-        m_inputController.Init();
         m_inputActions = m_inputController.InputActions;
         m_rb = GetComponent<Rigidbody2D>();
 

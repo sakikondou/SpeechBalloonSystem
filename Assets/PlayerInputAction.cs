@@ -43,9 +43,9 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Speek"",
+                    ""name"": ""Speak"",
                     ""type"": ""Button"",
-                    ""id"": ""041c7fa4-0ed9-4b02-86eb-c96996146f8a"",
+                    ""id"": ""ab06825b-7947-4fb2-b1ca-7eef9826c4bb"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -274,12 +274,12 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2f9fe0ec-48e3-422c-b3e9-f2a5ffd0c414"",
+                    ""id"": ""a5ca1521-f2b0-42f7-a1c1-e1f4ec8f7e1c"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Speek"",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Speak"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -860,7 +860,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
-        m_Player_Speek = m_Player.FindAction("Speek", throwIfNotFound: true);
+        m_Player_Speak = m_Player.FindAction("Speak", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -925,7 +925,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
-    private readonly InputAction m_Player_Speek;
+    private readonly InputAction m_Player_Speak;
     public struct PlayerActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -933,7 +933,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
-        public InputAction @Speek => m_Wrapper.m_Player_Speek;
+        public InputAction @Speak => m_Wrapper.m_Player_Speak;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -952,9 +952,9 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
                 @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Speek.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeek;
-                @Speek.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeek;
-                @Speek.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeek;
+                @Speak.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeak;
+                @Speak.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeak;
+                @Speak.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSpeak;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -968,9 +968,9 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
-                @Speek.started += instance.OnSpeek;
-                @Speek.performed += instance.OnSpeek;
-                @Speek.canceled += instance.OnSpeek;
+                @Speak.started += instance.OnSpeak;
+                @Speak.performed += instance.OnSpeak;
+                @Speak.canceled += instance.OnSpeak;
             }
         }
     }
@@ -1130,7 +1130,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
-        void OnSpeek(InputAction.CallbackContext context);
+        void OnSpeak(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

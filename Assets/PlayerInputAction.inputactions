@@ -30,9 +30,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Speek",
+                    "name": "Speak",
                     "type": "Button",
-                    "id": "041c7fa4-0ed9-4b02-86eb-c96996146f8a",
+                    "id": "ab06825b-7947-4fb2-b1ca-7eef9826c4bb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -261,12 +261,12 @@
                 },
                 {
                     "name": "",
-                    "id": "2f9fe0ec-48e3-422c-b3e9-f2a5ffd0c414",
+                    "id": "a5ca1521-f2b0-42f7-a1c1-e1f4ec8f7e1c",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Speek",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Speak",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

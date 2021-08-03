@@ -5,21 +5,23 @@ using UnityEngine.UI;
 
 public class CommentPanel : MonoBehaviour
 {
-    [SerializeField] string[] m_coments;
+    public string[] Coments;
     int m_comentIndex;
     [SerializeField] Text m_text;
 
     private void OnEnable()
     {
         m_comentIndex = 0;
+        m_text.text = Coments[m_comentIndex];
+        m_comentIndex++;
     }
 
     public void OnClick()
     {
-        if (m_coments.Length > 0 &&
-            m_comentIndex < m_coments.Length)
+        if (Coments.Length > 0 &&
+            m_comentIndex < Coments.Length)
         {
-            m_text.text = m_coments[m_comentIndex];
+            m_text.text = Coments[m_comentIndex];
             m_comentIndex++;
         }
         else

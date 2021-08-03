@@ -7,7 +7,7 @@ public class InputController : MonoBehaviour
     PlayerInputAction m_inputActions;
     public PlayerInputAction InputActions { private set { } get { return m_inputActions; } }
 
-    public void Init()
+    void Start()
     {
         m_inputActions = new PlayerInputAction();
         m_inputActions.Enable();
